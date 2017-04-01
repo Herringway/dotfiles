@@ -5,7 +5,7 @@ function title {
     print -nR $'\033k'$1$'\033'\\
 
     print -nR $'\033]0;'$2$'\a'
-  elif [[ $TERM == "xterm" || $TERM == "rxvt" ]]; then
+  elif [[ $TERM == "xterm" || $TERM == "rxvt" || $TERM == "putty" || $TERM == "putty-256color" ]]; then
     # Use this one instead for XTerms:
     print -PnR $'\033]0;'%n@%m: $*$'\a'
   fi
