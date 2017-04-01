@@ -1,5 +1,3 @@
-alias sudo='sudo '
-
 insert-root-prefix () {
    local prefix
    case $(uname -s) in
@@ -10,8 +8,10 @@ insert-root-prefix () {
          prefix="sudo"
       ;;
    esac
-   BUFFER="$prefix $BUFFER"
-   CURSOR=$(($CURSOR + $#prefix + 1))
+   if [[ $BUFFER != "$prefix "* ]]; then
+      BUFFER="$prefix $BUFFER"
+      CURSOR=$(($CURSOR + $#prefix + 1))
+   fi
 }
 
 zle -N insert-root-prefix
