@@ -14,11 +14,12 @@ function title {
 function title_precmd {
   title zsh "$PWD"
 }
-[[ -z $precmd_functions ]] && precmd_functions=()
-precmd_functions=($precmd_functions title_precmd)
 
-function preexec {
+function title_preexec {
   emulate -L zsh
   local -a cmd; cmd=(${(z)1})
   title $cmd[1]:t "$cmd[2,-1]"
 }
+
+add-zsh-hook precmd title_precmd
+add-zsh-hook preexec title_preexec

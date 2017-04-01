@@ -43,11 +43,10 @@ function git_precmd {
   vcs_info
   [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$fg[red][$fg[white]$vcs_info_msg_0_$fg[red]]"
 }
-[[ -z $precmd_functions ]] && precmd_functions=()
-precmd_functions=($precmd_functions git_precmd)
 
 # Must run vcs_info when changing directories.
 prompt_chpwd() {
     FORCE_RUN_VCS_INFO=1
 }
+add-zsh-hook precmd git_precmd
 add-zsh-hook chpwd prompt_chpwd
