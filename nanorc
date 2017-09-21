@@ -1,6 +1,6 @@
 set autoindent
 set constantshow
-set linenumbers
+#set linenumbers
 set morespace
 set mouse
 set noconvert
