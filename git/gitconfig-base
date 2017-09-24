@@ -1,0 +1,8 @@
+[push]
+        default = simple
+        followTags = true
+        gpgsign = if-asked
+[commit]
+        gpgsign = true
+[log]
+        date = iso-local
