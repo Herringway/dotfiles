@@ -11,3 +11,10 @@ if [ -a ~/.nanorc ]; then
 else
 	ln -s "${INSTALLDIR}/nanorc" ~/.nanorc
 fi
+if [ -a ~/.gitconfig ]; then
+	echo "A .gitconfig is already present! Not replacing."
+else
+	echo "[include]" >~/.gitconfig
+	echo "        path = ${INSTALLDIR}/git/gitconfig-base" >>~/.gitconfig
+	echo "        path = ${INSTALLDIR}/git/gitconfig-linux" >>~/.gitconfig
+fi
