@@ -18,3 +18,8 @@ else
 	echo "        path = ${INSTALLDIR}/git/gitconfig-base" >>~/.gitconfig
 	echo "        path = ${INSTALLDIR}/git/gitconfig-linux" >>~/.gitconfig
 fi
+if [ -a ~/.editorconfig ]; then
+	echo "An .editorconfig is already present! Not replacing."
+else
+	ln -s "${INSTALLDIR}/editorconfig" ~/.editorconfig
+fi

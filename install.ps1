@@ -22,3 +22,7 @@ if (!(Test-Path $HOME/.gitconfig)) {
 	echo "        path = $PSScriptRoot/git/gitconfig-base" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
 	echo "        path = $PSScriptRoot/git/gitconfig-windows" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
 }
+if (!(Test-Path $HOME/.editorconfig)) {
+	#TODO - symbolic link, once tools support it without elevation
+	Copy-Item $PSScriptRoot/editorconfig $HOME/.editorconfig
+}
