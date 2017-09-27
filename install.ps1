@@ -13,11 +13,11 @@ function Get-FileEncoding {
 		Write-Output 'UTF8'
 	}
 }
-if (!(Select-String -SimpleMatch "$PSScriptRoot\Powershell\powershell.ps1" -Path $PROFILE)) {
+if (!(Select-String -SimpleMatch "$PSScriptRoot/Powershell/powershell.ps1" -Path $PROFILE)) {
 	$profileEncoding = Get-FileEncoding "$PROFILE"
-	echo "`n$PSScriptRoot\Powershell\powershell.ps1" | Out-File -Append -Encoding $profileEncoding -NoClobber -FilePath $PROFILE
+	echo "`n$PSScriptRoot/Powershell/powershell.ps1" | Out-File -Append -Encoding $profileEncoding -NoClobber -FilePath $PROFILE
 }
-if (!(Test-Path $HOME\.gitconfig)) {
+if (!(Test-Path $HOME/.gitconfig)) {
 	echo "[include]" | Out-File -Encoding UTF8 -FilePath $HOME/.gitconfig
 	echo "        path = $PSScriptRoot/git/gitconfig-base" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
 	echo "        path = $PSScriptRoot/git/gitconfig-windows" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
