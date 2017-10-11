@@ -6,3 +6,7 @@
         gpgsign = true
 [log]
         date = iso-local
+[url "https://github.com/"]
+        insteadOf = gh://
+[url "https://bitbucket.com/"]
+        insteadOf = bb://
