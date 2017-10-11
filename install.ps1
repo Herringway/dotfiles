@@ -18,9 +18,13 @@ if (!(Select-String -SimpleMatch "$PSScriptRoot/Powershell/powershell.ps1" -Path
 	echo "`n$PSScriptRoot/Powershell/powershell.ps1" | Out-File -Append -Encoding $profileEncoding -NoClobber -FilePath $PROFILE
 }
 if (!(Test-Path $HOME/.gitconfig)) {
+	$GitFriendlyPath = "$PSScriptRoot\git".Replace("\", "\\")
 	echo "[include]" | Out-File -Encoding UTF8 -FilePath $HOME/.gitconfig
-	echo "        path = $PSScriptRoot/git/gitconfig-base" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
-	echo "        path = $PSScriptRoot/git/gitconfig-windows" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
+	echo "	path = $GitFriendlyPath\\gitconfig-base" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
+	echo "	path = $GitFriendlyPath\\gitconfig-windows" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
+	$ODGitRoot = $HOME.Replace("\", "\\")
+	echo "[url `"$ODGitRoot\\OneDrive\\dev\\git\\`"]" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
+	echo "	insteadOf = od://" | Out-File -Append -NoClobber -Encoding UTF8 -FilePath $HOME/.gitconfig
 }
 if (!(Test-Path $HOME/.editorconfig)) {
 	#TODO - symbolic link, once tools support it without elevation
