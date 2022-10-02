@@ -1,5 +1,5 @@
 [core]
-        editor = 'c:/program files/sublime text 3/subl.exe' -w
+        editor = 'c:/program files/sublime text/subl.exe' -w
         safecrlf = false
 [gpg]
-        program = C:/Program Files (x86)/GNU/GnuPG/gpg2.exe
+        program = C:/Program Files (x86)/GnuPG/bin/gpg.exe
