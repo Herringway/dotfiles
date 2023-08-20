@@ -23,3 +23,8 @@ if [ -a ~/.editorconfig ]; then
 else
 	ln -s "${INSTALLDIR}/editorconfig" ~/.editorconfig
 fi
+if [ -a ~/.tmux.conf ]; then
+	echo "tmux config is already present! Not replacing."
+else
+	ln -s "${INSTALLDIR}/tmux.conf" ~/.tmux.conf
+fi
