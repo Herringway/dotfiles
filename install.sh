@@ -11,19 +11,19 @@ if [ -e ~/.nanorc ]; then
 else
 	ln -s "${INSTALLDIR}/nanorc" ~/.nanorc
 fi
-if [ -a ~/.gitconfig ]; then
+if [ -e ~/.gitconfig ]; then
 	echo "A .gitconfig is already present! Not replacing."
 else
 	echo "[include]" >~/.gitconfig
 	echo "        path = ${INSTALLDIR}/git/gitconfig-base" >>~/.gitconfig
 	echo "        path = ${INSTALLDIR}/git/gitconfig-linux" >>~/.gitconfig
 fi
-if [ -a ~/.editorconfig ]; then
+if [ -e ~/.editorconfig ]; then
 	echo "An .editorconfig is already present! Not replacing."
 else
 	ln -s "${INSTALLDIR}/editorconfig" ~/.editorconfig
 fi
-if [ -a ~/.tmux.conf ]; then
+if [ -e ~/.tmux.conf ]; then
 	echo "tmux config is already present! Not replacing."
 else
 	ln -s "${INSTALLDIR}/tmux.conf" ~/.tmux.conf
